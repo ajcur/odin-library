@@ -20,6 +20,7 @@ function Book(id, title, author, pagecount, read) {
 function addBookToLibrary(id, title, author, pagecount, read) {
     let newBook = new Book(id, title, author, pagecount, read);
     myLibrary.push(newBook);
+    bookshelfBox.replaceChildren();
     myLibrary.forEach(addBookDisplay);
 }
 
@@ -65,5 +66,4 @@ newBookDialog.addEventListener('close', () => {
     let read = readCheckbox.checked;
     addBookToLibrary(id, title, author, pagecount, read);
     resetDialog();
-    console.log(myLibrary);
 })
