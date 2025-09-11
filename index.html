@@ -16,15 +16,15 @@
         <form method="dialog">
             <label for="title">
                 Title:
-                <input type="text" id="title" name="title">
+                <input type="text" id="title" name="title" required>
             </label>
             <label for="author">
                 Author:
-                <input type="text" id="author" name="author">
+                <input type="text" id="author" name="author" required>
             </label>
             <label for="pagecount">
                 Page Count:
-                <input type="number" id="pagecount" name="pagecount">
+                <input type="number" id="pagecount" name="pagecount" required>
             </label>
             <label for="read">
                 Read:
@@ -33,5 +33,6 @@
             <button type="submit" class="add-button">Add</button>
         </form>
     </dialog>
+    <div class="bookshelf-box"></div>
 </body>
 </html>
