@@ -12,5 +12,26 @@
         <h1>Library</h1>
         <button id="add-book">Add New Book</button>
     </header>
+    <dialog class="new-book-window">
+        <form method="dialog">
+            <label for="title">
+                Title:
+                <input type="text" id="title" name="title">
+            </label>
+            <label for="author">
+                Author:
+                <input type="text" id="author" name="author">
+            </label>
+            <label for="pagecount">
+                Page Count:
+                <input type="number" id="pagecount" name="pagecount">
+            </label>
+            <label for="read">
+                Read:
+                <input type="checkbox" id="read" name="read">
+            </label>
+            <button type="submit" class="add-button">Add</button>
+        </form>
+    </dialog>
 </body>
 </html>
