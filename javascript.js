@@ -1,6 +1,8 @@
 const newBookButton = document.querySelector('#add-book');
 const newBookDialog = document.querySelector('.new-book-window');
+const newBookForm = document.querySelector('.new-book-form');
 const addButton = document.querySelector('.add-button');
+const cancelButton = document.querySelector('.cancel-button');
 const titleField = document.querySelector('#title');
 const authorField = document.querySelector('#author');
 const pagecountField = document.querySelector('#pagecount');
@@ -119,12 +121,17 @@ newBookButton.addEventListener('click', () => {
     newBookDialog.showModal();
 })
 
-newBookDialog.addEventListener('close', () => {
+newBookForm.addEventListener('submit', () => {
     let id = crypto.randomUUID();
     let title = titleField.value;
     let author = authorField.value;
     let pagecount = parseInt(pagecountField.value);
     let read = readCheckbox.checked;
     addBookToLibrary(id, title, author, pagecount, read);
+    resetDialog();
+})
+
+cancelButton.addEventListener('click', () => {
+    newBookDialog.close();
     resetDialog();
 })
