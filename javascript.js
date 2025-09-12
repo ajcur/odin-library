@@ -43,11 +43,22 @@ function switchReadStatus(book) {
 }
 
 function displayReadStatus(book, readDisplay, markReadButton) {
+    readDisplay.replaceChildren();
+    let symbol = document.createElement('span');
+    let displayText = document.createElement('span');
     if (book.read) {
-        readDisplay.textContent = '☑️ Read';
+        symbol.textContent = '☑';
+        symbol.classList = 'checkbox-marked';
+        displayText.textContent = 'Read';
+        readDisplay.appendChild(symbol);
+        readDisplay.appendChild(displayText);
         markReadButton.textContent = 'Mark Unread';
     } else {
-        readDisplay.textContent = '❌ Not read';
+        symbol.textContent = '☒';
+        symbol.classList = 'checkbox-crossed-out';
+        displayText.textContent = 'Unread';
+        readDisplay.appendChild(symbol);
+        readDisplay.appendChild(displayText);
         markReadButton.textContent = 'Mark Read';
 }}
 
@@ -63,7 +74,7 @@ function addBookDisplay(book) {
     let titleDisplay = document.createElement('p');
     let authorDisplay = document.createElement('p');
     let pagecountDisplay = document.createElement('p');
-    let readDisplay = document.createElement('p');
+    let readDisplay = document.createElement('div');
     let buttonsBox = document.createElement('div');
     let markReadButton = document.createElement('button');
     let deleteBookButton = document.createElement('button');
@@ -76,7 +87,7 @@ function addBookDisplay(book) {
     buttonsBox.classList = 'buttons-box';
     markReadButton.classList = 'mark-read';
     deleteBookButton.classList = 'delete-book';
-    
+
     titleDisplay.textContent = `${book.title}`;
     authorDisplay.textContent = `By ${book.author}`;
     pagecountDisplay.textContent = `${book.pagecount} pages`;

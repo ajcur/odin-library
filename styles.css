@@ -54,7 +54,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 :root {
-    --accent-green: rgb(70, 158, 84);
+    --accent-green: rgb(45, 117, 57);
     --accent-red: rgb(143, 45, 45);
     --medium-grey: rgb(130, 130, 130);
     --pale-grey: rgb(225, 225, 225);
@@ -123,16 +123,14 @@ header button {
     align-items: center;
 }
 
-.read-display svg {
-    width: 1.2rem;
+span.checkbox-marked {
+    color: var(--accent-green);
+    font-size: 1.4rem;
 }
 
-svg.checkbox-marked {
-    fill: var(--accent-green);
-}
-
-svg.checkbox-crossed-out {
-    fill: var(--accent-red);
+span.checkbox-crossed-out {
+    color: var(--accent-red);
+    font-size: 1.4rem;
 }
 
 .buttons-box {
