@@ -17,29 +17,29 @@ function Book(id, title, author, pagecount, read) {
     this.read = read;
 }
 
-function addBookToLibrary(id, title, author, pagecount, read) {
-    let newBook = new Book(id, title, author, pagecount, read);
-    myLibrary.push(newBook);
-    updateBookDisplays();
+Book.prototype.switchReadStatus = function() {
+    if (this.read) {
+        this.read = false;
+    } else this.read = true;
 }
 
-function deleteBook(book) {
-    i = myLibrary.indexOf(book);
+Book.prototype.deleteBook = function() {
+    i = myLibrary.indexOf(this);
     myLibrary = myLibrary.filter((item) => {
         return myLibrary.indexOf(item) != i;
     })
     updateBookDisplays();
 }
 
+function addBookToLibrary(id, title, author, pagecount, read) {
+    let newBook = new Book(id, title, author, pagecount, read);
+    myLibrary.push(newBook);
+    updateBookDisplays();
+}
+
 function updateBookDisplays() {
     bookshelfBox.replaceChildren();
     myLibrary.forEach(addBookDisplay);
-}
-
-function switchReadStatus(book) {
-    if (book.read) {
-        book.read = false;
-    } else book.read = true;
 }
 
 function displayReadStatus(book, readDisplay, markReadButton) {
@@ -96,11 +96,11 @@ function addBookDisplay(book) {
     displayReadStatus(book, readDisplay, markReadButton);
 
     markReadButton.addEventListener('click', () => {
-        switchReadStatus(book);
+        book.switchReadStatus();
         displayReadStatus(book, readDisplay, markReadButton);
     })
     deleteBookButton.addEventListener('click', () => {
-        deleteBook(book);
+        book.deleteBook();
     })
 
     buttonsBox.appendChild(markReadButton);

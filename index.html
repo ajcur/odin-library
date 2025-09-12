@@ -14,23 +14,19 @@
     </header>
     <dialog class="new-book-window">
         <form method="dialog">
-            <label for="title">
-                Title:
+            <div class="inputs">
+                <label for="title">Title:</label>
                 <input type="text" id="title" name="title" required>
-            </label>
-            <label for="author">
-                Author:
+                <label for="author">Author:</label>
                 <input type="text" id="author" name="author" required>
-            </label>
-            <label for="pagecount">
-                Page Count:
+                <label for="pagecount">Page Count:</label>
                 <input type="number" id="pagecount" name="pagecount" required>
-            </label>
-            <label for="read">
-                Read:
+                <label for="read">Read:</label>
                 <input type="checkbox" id="read" name="read">
-            </label>
-            <button type="submit" class="add-button">Add</button>
+            </div>
+            <div class="buttons">
+                <button type="button" class="cancel-button" value="cancel">Cancel</button>
+                <button type="submit" class="add-button">Add Book</button>
         </form>
     </dialog>
     <div class="bookshelf-box"></div>
