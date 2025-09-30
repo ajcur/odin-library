@@ -11,12 +11,14 @@ const bookshelfBox = document.querySelector('.bookshelf-box');
 
 let myLibrary = [];
 
-function Book(id, title, author, pagecount, read) {
-    this.id = id;
-    this.title = title;
-    this.author = author;
-    this.pagecount = pagecount;
-    this.read = read;
+class Book {
+    constructor(id, title, author, pagecount, read) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.pagecount = pagecount;
+        this.read = read;
+    }
 }
 
 Book.prototype.switchReadStatus = function() {
